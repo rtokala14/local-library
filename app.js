@@ -1,8 +1,8 @@
 var createError = require("http-errors");
 var express = require("express");
 let mongoose = require("mongoose");
-let mongoDB =
-  "mongodb+srv://test:Rohit1364@sandbox.pyqutv1.mongodb.net/local_library?retryWrites=true&w=majority";
+let dev_deb_url = "mongodb+srv://test:Rohit1364@sandbox.pyqutv1.mongodb.net/local_library?retryWrites=true&w=majority"
+let mongoDB = process.env.MONGODB_URI || dev_deb_url
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
